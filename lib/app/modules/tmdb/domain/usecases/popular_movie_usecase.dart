@@ -7,7 +7,7 @@ import '../../../../core/errors/errors.dart';
 
 abstract class PopularMovieUsecase {
   Future<Either<FailureSearch, List<MovieEntity>>> call(
-      {required String language,  required int page});
+      {required int page});
 }
 
 class PopularMovieUsecaseImpl implements PopularMovieUsecase {
@@ -18,10 +18,10 @@ class PopularMovieUsecaseImpl implements PopularMovieUsecase {
 
   @override
   Future<Either<FailureSearch, List<MovieEntity>>> call(
-      {required String language,  required int page}) async {
+      {required int page}) async {
     logger.d('Inicio do usecase na domain para popular.');
     try {
-      return await repository.popular(language: language, page: page);
+      return await repository.popular(page: page);
     } on Exception {
       return Left(InvalidResponseFailure());
     }

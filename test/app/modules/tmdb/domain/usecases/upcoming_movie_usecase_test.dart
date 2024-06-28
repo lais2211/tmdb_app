@@ -16,7 +16,6 @@ void main() {
   final logger = LoggerMock();
   final usecase =
       UpcomingMovieUsecaseImpl(repository: repository, logger: logger);
-  const language = 'pt-BR';
   const page = 1;
 
   test('should return a list of movies', () async {
@@ -33,11 +32,11 @@ void main() {
       ),
     ];
 
-    when(() => repository.upcoming(language: language, page: page))
+    when(() => repository.upcoming(page: page))
         .thenAnswer((_) async => Right(moviesEntityList));
 
     // Act
-    final result = await usecase(language: language, page: page);
+    final result = await usecase(page: page);
 
     // Assert
     expect(result.isRight(), true);
@@ -46,11 +45,11 @@ void main() {
 
   test('should return a FailureSearch on error', () async {
     // Arrange
-    when(() => repository.upcoming(language: language, page: page))
+    when(() => repository.upcoming(page: page))
         .thenAnswer((_) async => Left(InvalidResponseFailure()));
 
     // Act
-    final result = await usecase(language: language, page: page);
+    final result = await usecase(page: page);
 
     // Assert
     expect(result.isLeft(), true);

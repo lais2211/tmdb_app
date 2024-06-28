@@ -17,7 +17,6 @@ class LoggerMock extends Mock implements Logger {}
 void main() {
   final datasource = MovieDataSourceMock();
   final logger = LoggerMock();
-  const language = 'pt-BR';
   const search = 'test';
   const movieId = 1;
   const page = 1;
@@ -38,11 +37,11 @@ void main() {
       ),
     ];
 
-    when(() => datasource.getUpcomingMovies(language: language, page: page))
+    when(() => datasource.getUpcomingMovies(page: page))
         .thenAnswer((_) async => movieModel);
 
     // Act
-    final result = await repository.upcoming(language: language, page: page);
+    final result = await repository.upcoming(page: page);
 
     // Assert
     expect(result.isRight(), true);
@@ -53,11 +52,11 @@ void main() {
       'should return a DataSourceFailure when getUpcomingMovies throws an Exception',
       () async {
     // Arrange
-    when(() => datasource.getUpcomingMovies(language: language, page: page))
+    when(() => datasource.getUpcomingMovies(page: page))
         .thenThrow(Exception());
 
     // Act
-    final result = await repository.upcoming(language: language, page: page);
+    final result = await repository.upcoming(page: page);
 
     // Assert
     expect(result.isLeft(), true);
@@ -77,11 +76,11 @@ void main() {
       ),
     ];
 
-    when(() => datasource.getNowPlayingMovies(language: language, page: page))
+    when(() => datasource.getNowPlayingMovies(page: page))
         .thenAnswer((_) async => movieModel);
 
     // Act
-    final result = await repository.nowPlaying(language: language, page: page);
+    final result = await repository.nowPlaying(page: page);
 
     // Assert
     expect(result.isRight(), true);
@@ -92,11 +91,11 @@ void main() {
       'should return a DataSourceFailure when getNowPlayingMovies throws an Exception',
       () async {
     // Arrange
-    when(() => datasource.getNowPlayingMovies(language: language, page: page))
+    when(() => datasource.getNowPlayingMovies(page: page))
         .thenThrow(Exception());
 
     // Act
-    final result = await repository.nowPlaying(language: language, page: page);
+    final result = await repository.nowPlaying(page: page);
 
     // Assert
     expect(result.isLeft(), true);
@@ -117,11 +116,11 @@ void main() {
       ),
     ];
 
-    when(() => datasource.getPopularMovies(language: language, page: page))
+    when(() => datasource.getPopularMovies(page: page))
         .thenAnswer((_) async => movieModel);
 
     // Act
-    final result = await repository.popular(language: language, page: page);
+    final result = await repository.popular(page: page);
 
     // Assert
     expect(result.isRight(), true);
@@ -132,11 +131,11 @@ void main() {
       'should return a DataSourceFailure when getPopularMovies throws an Exception',
       () async {
     // Arrange
-    when(() => datasource.getPopularMovies(language: language, page: page))
+    when(() => datasource.getPopularMovies(page: page))
         .thenThrow(Exception());
 
     // Act
-    final result = await repository.popular(language: language, page: page);
+    final result = await repository.popular(page: page);
 
     // Assert
     expect(result.isLeft(), true);
@@ -157,11 +156,11 @@ void main() {
       ),
     ];
 
-    when(() => datasource.getTopRatedMovies(language: language, page: page))
+    when(() => datasource.getTopRatedMovies(page: page))
         .thenAnswer((_) async => movieModel);
 
     // Act
-    final result = await repository.topRated(language: language, page: page);
+    final result = await repository.topRated(page: page);
 
     // Assert
     expect(result.isRight(), true);
@@ -172,11 +171,11 @@ void main() {
       'should return a DataSourceFailure when getTopRatedMovies throws an Exception',
       () async {
     // Arrange
-    when(() => datasource.getTopRatedMovies(language: language, page: page))
+    when(() => datasource.getTopRatedMovies(page: page))
         .thenThrow(Exception());
 
     // Act
-    final result = await repository.topRated(language: language, page: page);
+    final result = await repository.topRated(page: page);
 
     // Assert
     expect(result.isLeft(), true);
@@ -198,13 +197,12 @@ void main() {
     ];
 
     when(() => datasource.searchMovies(
-        language: language,
-        search: search,
+                search: search,
         page: page)).thenAnswer((_) async => movieModel);
 
     // Act
     final result = await repository.searchMovie(
-        language: language, search: search, page: page);
+        search: search, page: page);
 
     // Assert
     expect(result.isRight(), true);
@@ -216,11 +214,11 @@ void main() {
       () async {
     // Arrange
     when(() => datasource.searchMovies(
-        language: language, search: search, page: page)).thenThrow(Exception());
+        search: search, page: page)).thenThrow(Exception());
 
     // Act
     final result = await repository.searchMovie(
-        language: language, search: search, page: page);
+        search: search, page: page);
 
     // Assert
     expect(result.isLeft(), true);

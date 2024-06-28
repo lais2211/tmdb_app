@@ -7,7 +7,7 @@ import '../../../../core/errors/errors.dart';
 
 abstract class UpcomingMovieUsecase {
   Future<Either<FailureSearch, List<MovieEntity>>> call(
-      {required String language,  required int page});
+      {required int page});
 }
 
 class UpcomingMovieUsecaseImpl implements UpcomingMovieUsecase {
@@ -18,10 +18,10 @@ class UpcomingMovieUsecaseImpl implements UpcomingMovieUsecase {
 
   @override
   Future<Either<FailureSearch, List<MovieEntity>>> call(
-      {required String language,  required int page}) async {
+      {required int page}) async {
     logger.d('Inicio do usecase na domain para upcoming.');
     try {
-      return await repository.upcoming(language: language, page: page);
+      return await repository.upcoming(page: page);
     } on Exception {
       return Left(InvalidResponseFailure());
     }

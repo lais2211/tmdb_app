@@ -4,7 +4,6 @@ import 'package:tmdb_app/app/modules/tmdb/infra/datasource/movie_datasource.dart
 import 'package:tmdb_app/app/modules/tmdb/infra/models/cast_model.dart';
 import 'package:tmdb_app/app/modules/tmdb/infra/models/movie_model.dart';
 
-import '../../../../core/config/config_env.dart';
 import '../../../../core/errors/errors.dart';
 import '../../l10n/movie_l10n.dart';
 
@@ -31,10 +30,9 @@ class MovieDatasourceImpl implements MovieDatasource {
   @override
   Future<List<CastModel>> getCast({required int movieId}) async {
     try {
-      final queryParams = {'api_key': ConfigEnv.apiKey};
-
-      final response =
-          await dio.get('movie/$movieId/credits', queryParameters: queryParams);
+      final response = await dio.get(
+        'movie/$movieId/credits',
+      );
 
       final statusCode = response.statusCode!;
 
@@ -58,13 +56,9 @@ class MovieDatasourceImpl implements MovieDatasource {
 
   @override
   Future<List<MovieModel>> getNowPlayingMovies(
-      {required String language, required int page}) async {
+      {required int page}) async {
     try {
-      final queryParams = {
-        'language': language,
-        'api_key': ConfigEnv.apiKey,
-        'page': page
-      };
+      final queryParams = {'page': page};
 
       final response = await dio.get(
         'movie/now_playing',
@@ -93,13 +87,9 @@ class MovieDatasourceImpl implements MovieDatasource {
 
   @override
   Future<List<MovieModel>> getPopularMovies(
-      {required String language, required int page}) async {
+      {required int page}) async {
     try {
-      final queryParams = {
-        'language': language,
-        'api_key': ConfigEnv.apiKey,
-        'page': page
-      };
+      final queryParams = {'page': page};
 
       final response = await dio.get(
         'movie/popular',
@@ -127,13 +117,9 @@ class MovieDatasourceImpl implements MovieDatasource {
 
   @override
   Future<List<MovieModel>> getTopRatedMovies(
-      {required String language, required int page}) async {
+      {required int page}) async {
     try {
-      final queryParams = {
-        'language': language,
-        'api_key': ConfigEnv.apiKey,
-        'page': page
-      };
+      final queryParams = {'page': page};
 
       final response = await dio.get(
         'movie/top_rated',
@@ -161,13 +147,9 @@ class MovieDatasourceImpl implements MovieDatasource {
 
   @override
   Future<List<MovieModel>> getUpcomingMovies(
-      {required String language, required int page}) async {
+      {required int page}) async {
     try {
-      final queryParams = {
-        'language': language,
-        'api_key': ConfigEnv.apiKey,
-        'page': page
-      };
+      final queryParams = {'page': page};
 
       final response = await dio.get(
         'movie/upcoming',
@@ -195,15 +177,12 @@ class MovieDatasourceImpl implements MovieDatasource {
 
   @override
   Future<List<MovieModel>> searchMovies(
-      {required String language,
-      required String search,
+      {required String search,
       required int page}) async {
     try {
       final queryParams = {
-        'language': language,
         'query': search,
         'page': page,
-        'api_key': ConfigEnv.apiKey
       };
 
       final response = await dio.get(

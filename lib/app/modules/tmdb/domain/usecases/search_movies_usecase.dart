@@ -7,7 +7,7 @@ import '../../../../core/errors/errors.dart';
 
 abstract class SearchMoviesUsecase {
   Future<Either<FailureSearch, List<MovieEntity>>> call(
-      {required String language, required String search,  required int page});
+      {required String search,  required int page});
 }
 
 class SearchMoviesUsecaseImpl implements SearchMoviesUsecase {
@@ -18,10 +18,10 @@ class SearchMoviesUsecaseImpl implements SearchMoviesUsecase {
 
   @override
   Future<Either<FailureSearch, List<MovieEntity>>> call(
-      {required String language, required String search,  required int page}) async {
+      {required String search,  required int page}) async {
     logger.d('Inicio do usecase na domain para SearchMovies.');
     try {
-      return await repository.searchMovie(language: language, search: search, page: page);
+      return await repository.searchMovie( search: search, page: page);
     } on Exception {
       return Left(InvalidResponseFailure());
     }

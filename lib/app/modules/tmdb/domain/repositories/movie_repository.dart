@@ -6,19 +6,19 @@ import '../../../../core/errors/errors.dart';
 
 abstract class MovieRepository {
   Future<Either<FailureSearch, List<MovieEntity>>> upcoming(
-      {required String language, required int page});
+      {required int page});
 
   Future<Either<FailureSearch, List<MovieEntity>>> topRated(
-      {required String language, required int page});
+      {required int page});
 
   Future<Either<FailureSearch, List<MovieEntity>>> nowPlaying(
-      {required String language, required int page});
+      {required int page});
 
   Future<Either<FailureSearch, List<MovieEntity>>> popular(
-      {required String language, required int page});
+      {required int page});
 
   Future<Either<FailureSearch, List<MovieEntity>>> searchMovie(
-      {required String language, required String search, required int page});
+      {required String search, required int page});
 
   Future<Either<FailureSearch, List<CastEntity>>> cast({required int movieId});
 }

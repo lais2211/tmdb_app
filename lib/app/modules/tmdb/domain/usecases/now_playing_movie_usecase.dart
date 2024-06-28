@@ -7,7 +7,7 @@ import '../../../../core/errors/errors.dart';
 
 abstract class NowPLayingMovieUsecase {
   Future<Either<FailureSearch, List<MovieEntity>>> call(
-      {required String language, required int page});
+      {required int page});
 }
 
 class NowPLayingMovieUsecaseImpl implements NowPLayingMovieUsecase {
@@ -18,10 +18,10 @@ class NowPLayingMovieUsecaseImpl implements NowPLayingMovieUsecase {
 
   @override
   Future<Either<FailureSearch, List<MovieEntity>>> call(
-      {required String language, required int page}) async {
+      {required int page}) async {
     logger.d('Inicio do usecase na domain para now playing.');
     try {
-      return await repository.nowPlaying(language: language, page: page);
+      return await repository.nowPlaying(page: page);
     } on Exception {
       return Left(InvalidResponseFailure());
     }

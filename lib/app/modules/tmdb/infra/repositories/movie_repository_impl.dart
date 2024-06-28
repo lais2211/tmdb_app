@@ -29,11 +29,10 @@ class MovieRepositoryImpl implements MovieRepository {
 
   @override
   Future<Either<FailureSearch, List<MovieEntity>>> nowPlaying(
-      {required String language,  required int page}) async {
+      { required int page}) async {
     logger.d('Inicio do repository na infra getNowPlayingMovies.');
     try {
       final result = await datasource.getNowPlayingMovies(
-        language: language,
         page: page,
       );
       return Right(result);
@@ -44,11 +43,10 @@ class MovieRepositoryImpl implements MovieRepository {
 
   @override
   Future<Either<FailureSearch, List<MovieEntity>>> popular(
-      {required String language,  required int page}) async {
+      { required int page}) async {
     logger.d('Inicio do repository na infra getPopularMovies.');
     try {
       final result = await datasource.getPopularMovies(
-        language: language,
         page: page,
       );
       return Right(result);
@@ -59,11 +57,10 @@ class MovieRepositoryImpl implements MovieRepository {
 
   @override
   Future<Either<FailureSearch, List<MovieEntity>>> searchMovie(
-      {required String language, required String search,  required int page}) async {
+      {required String search,  required int page}) async {
     logger.d('Inicio do repository na infra searchMovies.');
     try {
       final result = await datasource.searchMovies(
-        language: language,
         search: search,
         page: page
       );
@@ -75,11 +72,10 @@ class MovieRepositoryImpl implements MovieRepository {
 
   @override
   Future<Either<FailureSearch, List<MovieEntity>>> topRated(
-      {required String language,  required int page}) async {
+      { required int page}) async {
     logger.d('Inicio do repository na infra getTopRatedMovies.');
     try {
       final result = await datasource.getTopRatedMovies(
-        language: language,
         page: page,
       );
       return Right(result);
@@ -90,11 +86,10 @@ class MovieRepositoryImpl implements MovieRepository {
 
   @override
   Future<Either<FailureSearch, List<MovieEntity>>> upcoming(
-      {required String language, required int page}) async {
+      {required int page}) async {
     logger.d('Inicio do repository na infra getUpcomingMovies.');
     try {
       final result = await datasource.getUpcomingMovies(
-        language: language,
         page: page
       );
       return Right(result);
