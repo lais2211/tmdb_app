@@ -1,16 +1,16 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'core/config/register_dio.dart';
 import 'core/config/register_logger.dart';
-import 'modules/tmdb_app/domain/repositories/movie_repository.dart';
-import 'modules/tmdb_app/domain/usecases/cast_usecase.dart';
-import 'modules/tmdb_app/domain/usecases/now_playing_movie_usecase.dart';
-import 'modules/tmdb_app/domain/usecases/popular_movie_usecase.dart';
-import 'modules/tmdb_app/domain/usecases/search_movies_usecase.dart';
-import 'modules/tmdb_app/domain/usecases/top_rated_movie_usecase.dart';
-import 'modules/tmdb_app/domain/usecases/upcoming_movie_usecase.dart';
-import 'modules/tmdb_app/external/datasources/movie_datasource_impl.dart';
-import 'modules/tmdb_app/infra/datasource/movie_datasource.dart';
-import 'modules/tmdb_app/infra/repositories/movie_repository_impl.dart';
+import 'modules/tmdb/domain/repositories/movie_repository.dart';
+import 'modules/tmdb/domain/usecases/cast_usecase.dart';
+import 'modules/tmdb/domain/usecases/now_playing_movie_usecase.dart';
+import 'modules/tmdb/domain/usecases/popular_movie_usecase.dart';
+import 'modules/tmdb/domain/usecases/search_movies_usecase.dart';
+import 'modules/tmdb/domain/usecases/top_rated_movie_usecase.dart';
+import 'modules/tmdb/domain/usecases/upcoming_movie_usecase.dart';
+import 'modules/tmdb/external/datasources/movie_datasource_impl.dart';
+import 'modules/tmdb/infra/datasource/movie_datasource.dart';
+import 'modules/tmdb/infra/repositories/movie_repository_impl.dart';
 
 class AppModule extends Module {
   @override
