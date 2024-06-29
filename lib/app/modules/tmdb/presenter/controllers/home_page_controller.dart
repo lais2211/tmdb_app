@@ -1,4 +1,3 @@
-import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:logger/logger.dart';
 import 'package:mobx/mobx.dart';
@@ -25,8 +24,14 @@ abstract class _HomePageControllerBase with Store {
 
   final CastUsecase castUsecase;
 
-  _HomePageControllerBase(this.upcomingMovieUsecase, this.popularMovieUsecase,
-      this.nowPLayingMovieUsecase, this.topRatedMovieUsecase, this.castUsecase);
+  _HomePageControllerBase(
+      this.upcomingMovieUsecase,
+      this.popularMovieUsecase,
+      this.nowPLayingMovieUsecase,
+      this.topRatedMovieUsecase,
+      this.castUsecase) {
+    initController();
+  }
 
   ObservableList<MovieEntity> popularMovies = ObservableList<MovieEntity>();
   ObservableList<MovieEntity> upComingMovies = ObservableList<MovieEntity>();
@@ -158,21 +163,11 @@ abstract class _HomePageControllerBase with Store {
     );
   }
 
-   Future<void> goToNavigation(BuildContext context) async {
-
-  await Future.wait([
-    getNowPlayingMovies(page:page),
-    getPopularMovies(page: page),
-    getTopRatedMovies(page: page),
-    getUpComingMovies(page: page),
-  ]);
-
-  _navigateToNextPage(context);
-}
-
-void _navigateToNextPage(BuildContext context) {
-  appStatus == WidgetStatus.error
-      ? Modular.to.pushReplacementNamed('/tmdb/error')
-      : Modular.to.pushReplacementNamed('/tmdb/home');
-}
+  @action
+  Future<void> initController() async {
+    await getNowPlayingMovies(page: page);
+    await getPopularMovies(page: page);
+    await getTopRatedMovies(page: page);
+    await getUpComingMovies(page: page);
+  }
 }

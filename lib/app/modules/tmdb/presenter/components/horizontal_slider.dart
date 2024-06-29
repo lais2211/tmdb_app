@@ -24,7 +24,7 @@ class HorizontalSlider extends StatelessWidget {
 
             return Padding(
               padding: const EdgeInsets.all(8),
-              child: MovieCard(onTap: onTap, actualMovie: actualMovie, height: 100, widht: 150, isSearch: false,),
+              child: MovieCard(onTap: onTap, actualMovie: actualMovie, height: 100, widht: 150, isSearch: false, key: const Key('movieCard')),
             );
           }),
     );
