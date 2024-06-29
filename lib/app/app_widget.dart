@@ -6,8 +6,9 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp.router(
-      title: 'Marvel App',
+      title: 'Tmdb App',
       theme: ThemeData.dark(),
       routerConfig: Modular.routerConfig,
     );
