@@ -45,6 +45,9 @@ dependencies:
   mobx_codegen: ^2.6.1
   carousel_slider: ^4.2.1
   flutter_dotenv: ^5.1.0
+  network_image_mock: ^2.1.1
+  integration_test:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:
@@ -75,6 +78,21 @@ flutter:
     - assets/images/tristeza.png
     - assets/images/splashPage.jpg
     - assets/images/noImage.jpg
+    - assets/prints/descriptionPage.jpg
+    - assets/prints/descriptionPage2.jpg
+    - assets/prints/descriptionPageWeb.jpg
+    - assets/prints/descriptionPage2Web.jpg
+    - assets/prints/errorPage.jpg
+    - assets/prints/homePage.jpg
+    - assets/prints/moreMoviesPage.jpg
+    - assets/prints/searchPage.jpg
+    - assets/prints/errorPageWeb.jpg
+    - assets/prints/homePageWeb.jpg
+    - assets/prints/moreMoviesPageWeb.jpg
+    - assets/prints/searchPageWeb.jpg
+    - assets/prints/splashPage.jpg
+    - assets/prints/tratativaError.jpg
+    - assets/prints/tratativaError2.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
