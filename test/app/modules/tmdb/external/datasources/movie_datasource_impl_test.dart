@@ -27,7 +27,7 @@ void main() async {
     // Arrange
     when(() => dio.get('movie/$movieId/credits'))
         .thenAnswer((_) async => Response<Map<String, Object>>(
-              data: DataSourceMock.castResult,
+              data: castResult,
               requestOptions: RequestOptions(),
               statusCode: 200,
             ));
@@ -63,7 +63,7 @@ void main() async {
     final queryParams = {'page': page};
     when(() => dio.get('movie/upcoming', queryParameters: queryParams))
         .thenAnswer((_) async => Response<Map<String, Object>>(
-              data: DataSourceMock.movieResult,
+              data: movieResult,
               requestOptions: RequestOptions(),
               statusCode: 200,
             ));
@@ -101,7 +101,7 @@ void main() async {
     final queryParams = {'page': page};
     when(() => dio.get('movie/popular', queryParameters: queryParams))
         .thenAnswer((_) async => Response<Map<String, Object>>(
-              data: DataSourceMock.movieResult,
+              data: movieResult,
               requestOptions: RequestOptions(),
               statusCode: 200,
             ));
@@ -139,7 +139,7 @@ void main() async {
     final queryParams = {'page': page};
     when(() => dio.get('movie/now_playing', queryParameters: queryParams))
         .thenAnswer((_) async => Response<Map<String, Object>>(
-              data: DataSourceMock.movieResult,
+              data: movieResult,
               requestOptions: RequestOptions(),
               statusCode: 200,
             ));
@@ -177,7 +177,7 @@ void main() async {
     final queryParams = {'page': page};
     when(() => dio.get('movie/top_rated', queryParameters: queryParams))
         .thenAnswer((_) async => Response<Map<String, Object>>(
-              data: DataSourceMock.movieResult,
+              data: movieResult,
               requestOptions: RequestOptions(),
               statusCode: 200,
             ));
@@ -215,7 +215,7 @@ void main() async {
     final queryParams = {'query': search, 'page': page};
     when(() => dio.get('search/multi', queryParameters: queryParams))
         .thenAnswer((_) async => Response<Map<String, Object>>(
-              data: DataSourceMock.movieResult,
+              data: movieResult,
               requestOptions: RequestOptions(),
               statusCode: 200,
             ));
