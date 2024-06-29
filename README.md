@@ -122,3 +122,5 @@ Obs.: Imagens capturadas de um celular samsung e chrome.
 
    flutter test
 
+2. Para rodar os teste de integração conecte com seu aparelho celular e rode individual os testes em seus arquivos clicando em run, os arquivos se encontram na pasta test_integration.
+
