@@ -1,8 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:tmdb_app/app/core/config/config_env.dart';
 import 'package:tmdb_app/app/modules/tmdb/domain/entities/movie_entity.dart';
+import 'package:tmdb_app/app/modules/tmdb/presenter/components/movie_card.dart';
 
 class Carousel extends StatelessWidget {
   const Carousel({
@@ -28,28 +28,15 @@ class Carousel extends StatelessWidget {
           itemBuilder: (context, itemIndex, pageViewIndex) {
             var actualMovie = movies[itemIndex];
 
-            return GestureDetector(
-                onTap: () {
-                  Modular.to
-                      .pushNamed('/tmdb/description', arguments: actualMovie);
-                },
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: SizedBox(
-                    height: carouselHeight,
-                    child: Image.network(
-                      filterQuality: FilterQuality.high,
-                      fit: BoxFit.cover,
-                      '${ConfigEnv.imagePath}${actualMovie.posterPath}',
-                      errorBuilder: (context, error, stackTrace) => Image.asset(
-                        height: 250,
-                        'assets/images/noImage.jpg',
-                        filterQuality: FilterQuality.high,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ));
+            return MovieCard(
+              onTap: (actualMovie) {
+                Modular.to
+                    .pushNamed('/tmdb/description', arguments: actualMovie);
+              },
+              actualMovie: actualMovie,
+              errorHeight: 250,
+              isSearch: false,
+            );
           },
           options: CarouselOptions(
             height: carouselHeight,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tmdb_app/app/core/config/config_env.dart';
 import 'package:tmdb_app/app/modules/tmdb/domain/entities/movie_entity.dart';
+
+import 'movie_card.dart';
 
 class HorizontalSlider extends StatelessWidget {
   final Function(MovieEntity) onTap;
@@ -23,28 +24,10 @@ class HorizontalSlider extends StatelessWidget {
 
             return Padding(
               padding: const EdgeInsets.all(8),
-              child: GestureDetector(
-                onTap: () => onTap(actualMovie),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: SizedBox(
-                    height: 100,
-                    width: 150,
-                    child: Image.network(
-                      filterQuality: FilterQuality.high,
-                      fit: BoxFit.cover,
-                      '${ConfigEnv.imagePath}${actualMovie.posterPath}',
-                      errorBuilder: (context, error, stackTrace) => Image.asset(
-                        'assets/images/noImage.jpg',
-                        filterQuality: FilterQuality.high,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              child: MovieCard(onTap: onTap, actualMovie: actualMovie, height: 100, widht: 150, isSearch: false,),
             );
           }),
     );
   }
 }
+
