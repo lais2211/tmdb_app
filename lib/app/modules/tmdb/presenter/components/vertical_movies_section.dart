@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -33,8 +34,8 @@ class _VerticalMoviesSectionState extends State<VerticalMoviesSection> {
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 1,
-                mainAxisSpacing: 20,
+                crossAxisCount: kIsWeb ? 3 : 1,
+                mainAxisSpacing: kIsWeb ? 0 : 20,
               ),
               itemCount: widget.movieList.length,
               itemBuilder: (context, index) {
@@ -46,9 +47,9 @@ class _VerticalMoviesSectionState extends State<VerticalMoviesSection> {
                   },
                   actualMovie: actualMovie,
                   isSearch: true,
-                  height: 250,
-                  errorHeight: 250,
-                  errorWidht: 170,
+                  height: kIsWeb ? 500 : 250,
+                  errorHeight:kIsWeb ? 500 : 250,
+                  errorWidht: kIsWeb ? 370 : 170,
                 );
               },
             ),

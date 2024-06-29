@@ -61,11 +61,15 @@ class _DescriptionPageState extends State<DescriptionPage> {
                     const SizedBox(
                       height: 16,
                     ),
-                    Text(
-                      widget.movie.overview ?? text.descriptionErrorOverview,
-                      style: const TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w400,
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Text(
+                        widget.movie.overview ?? text.descriptionErrorOverview,
+                        textAlign: TextAlign.justify,
+                        style: const TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
                     ),
                     const SizedBox(

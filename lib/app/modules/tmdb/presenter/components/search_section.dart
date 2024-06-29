@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -31,23 +32,26 @@ class _SearchSectionState extends State<SearchSection> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [
-        Expanded(
-            child: TextField(
-          controller: widget.searchController,
-          onChanged: (value) {
-              setState(() {
-                widget.searchText = value;
-              });
-            },
-          onSubmitted: navigateToSearchPage,
-          decoration: InputDecoration(
-            hintText: text.Search,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20.0),
+      mainAxisAlignment: kIsWeb ? MainAxisAlignment.center : MainAxisAlignment.start,
+      children: [ 
+    Container(
+      constraints: const BoxConstraints(maxWidth: kIsWeb ? 800 : 280, ),
+      child: TextField(
+            controller: widget.searchController,
+            onChanged: (value) {
+                setState(() {
+                  widget.searchText = value;
+                });
+              },
+            onSubmitted: navigateToSearchPage,
+            decoration: InputDecoration(
+              hintText: text.Search,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20.0),
+              ),
             ),
           ),
-        )),
+    ),
         const SizedBox(
           width: 8,
         ),

@@ -51,30 +51,33 @@ class HorizontalMoviesSection extends StatelessWidget {
                 ],
               ),
             ] else ...[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    sectionLabel,
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: BaseColors().textColor,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      sectionLabel,
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: BaseColors().textColor,
+                      ),
                     ),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      Modular.to.pushNamed(
-                        '/tmdb/more',
-                        arguments: {
-                          'movies': movies,
-                          'scrollListener': scrollListener,
-                          'status': status,
-                        },
-                      );
-                    },
-                    child: Text(text.more),
-                  ),
-                ],
+                    ElevatedButton(
+                      onPressed: () {
+                        Modular.to.pushNamed(
+                          '/tmdb/more',
+                          arguments: {
+                            'movies': movies,
+                            'scrollListener': scrollListener,
+                            'status': status,
+                          },
+                        );
+                      },
+                      child: Text(text.more),
+                    ),
+                  ],
+                ),
               ),
             ],
             const SizedBox(height: 10),
