@@ -20,7 +20,6 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: Image.asset('assets/images/splashPage.jpg', fit: BoxFit.cover));
+    return Image.asset('assets/images/splashPage.jpg', fit: BoxFit.cover);
   }
 }

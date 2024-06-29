@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class SpaceBar extends StatelessWidget {
@@ -18,7 +19,8 @@ class SpaceBar extends StatelessWidget {
         ),
         child: Image.network(
           filterQuality: FilterQuality.high,
-          fit: BoxFit.cover,
+          
+          fit: kIsWeb ? null : BoxFit.cover,
           posterUrl,
           errorBuilder: (context, error, stackTrace) => Image.asset(
             'assets/images/noImage.jpg',

@@ -1,4 +1,6 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:logger/logger.dart';
 import 'package:tmdb_app/app/core/config/register_logger.dart';
 import '../../core/config/register_dio.dart';
 import 'domain/repositories/movie_repository.dart';
@@ -23,8 +25,8 @@ import 'presenter/pages/search_page.dart';
 class TmdbModule extends Module {
   @override
   void binds(i) {
-    i.add(() => registerDio());
-    i.add(() => registerLogger());
+    i.addSingleton<Logger>(() => registerLogger());
+    i.addSingleton<Dio>(() => registerDio());
     i.add<UpcomingMovieUsecase>(UpcomingMovieUsecaseImpl.new);
     i.add<PopularMovieUsecase>(PopularMovieUsecaseImpl.new);
     i.add<TopRatedMovieUsecase>(TopRatedMovieUsecaseImpl.new);
