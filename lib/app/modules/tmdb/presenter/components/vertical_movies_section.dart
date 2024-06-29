@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:tmdb_app/app/modules/tmdb/domain/entities/movie_entity.dart';
+import 'package:tmdb_app/app/modules/tmdb/presenter/components/movie_card.dart';
 
-import '../../../../core/config/config_env.dart';
 import '../../../../core/config/widget_status.dart';
 import '../../l10n/movie_l10n.dart';
 
@@ -19,9 +19,8 @@ class VerticalMoviesSection extends StatefulWidget {
 }
 
 class _VerticalMoviesSectionState extends State<VerticalMoviesSection> {
- 
- final MovieL10n text = MovieL10n();
- 
+  final MovieL10n text = MovieL10n();
+
   @override
   Widget build(BuildContext context) {
     return Observer(builder: (context) {
@@ -40,40 +39,16 @@ class _VerticalMoviesSectionState extends State<VerticalMoviesSection> {
               itemCount: widget.movieList.length,
               itemBuilder: (context, index) {
                 final actualMovie = widget.movieList[index];
-                return GestureDetector(
-                  onTap: () {
-                    Modular.to.pushNamed('/tmdb/description',
-                        arguments: actualMovie);
+                return MovieCard(
+                  onTap: (actualMovie) {
+                    Modular.to
+                        .pushNamed('/tmdb/description', arguments: actualMovie);
                   },
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: Image.network(
-                          filterQuality: FilterQuality.high,
-                          height: 250,
-                          fit: BoxFit.fill,
-                          '${ConfigEnv.imagePath}${actualMovie.posterPath}',
-                          errorBuilder: (context, error, stackTrace) =>
-                             Image.asset(
-                              height: 250,
-                              width: 170,
-                               'assets/images/noImage.jpg',
-                               filterQuality: FilterQuality.high,
-                               fit: BoxFit.cover,
-                             ),
-                        ),
-                      ),
-                      const SizedBox(height: 5),
-                      Text(
-                        actualMovie.title ?? text.descriptionErrorTitle,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
+                  actualMovie: actualMovie,
+                  isSearch: true,
+                  height: 250,
+                  errorHeight: 250,
+                  errorWidht: 170,
                 );
               },
             ),
