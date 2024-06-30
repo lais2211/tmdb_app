@@ -18,4 +18,4 @@ jobs:
       - uses: bluefireteam/flutter-gh-pages@v8
         with:
           baseHref: /tmdb_app/
-          webRenderer: canvaskit
+          customArgs: "--dart-define=API_KEY=d3658a5e2b9b0484f233be9d70f0aeeb"

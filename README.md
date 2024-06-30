@@ -96,7 +96,6 @@ Obs.: Imagens capturadas de um celular samsung e chrome.
 - Dio: Consumo de API
 - Dartz: Erros e exceções
 - Carousel Slider: Para criação do widget do carrossel
-- Dotenv: Variáveis de ambiente
 - Device Preview: Para testes de tela responsiva
 
 

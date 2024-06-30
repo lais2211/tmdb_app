@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:logger/logger.dart';
 import 'package:mocktail/mocktail.dart';
@@ -21,7 +20,6 @@ void main() async {
   const movieId = 123;
   const search = 'test';
   const page = 1;
-  await dotenv.load(fileName: ".env");
 
   test('should return a list of cast', () async {
     // Arrange
