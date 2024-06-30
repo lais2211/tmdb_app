@@ -6,9 +6,9 @@ import 'package:tmdb_app/app/modules/tmdb/presenter/components/movie_card.dart';
 
 class Carousel extends StatelessWidget {
   const Carousel({
-    Key? key,
+    super.key,
     required this.movies,
-  }) : super(key: key);
+  });
 
   final List<MovieEntity> movies;
 

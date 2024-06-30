@@ -42,6 +42,8 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
       ),
       body: Observer(builder: (context) {
+
+        
         return SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Padding(

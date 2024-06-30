@@ -45,7 +45,7 @@ class _SearchSectionState extends State<SearchSection> {
               },
             onSubmitted: navigateToSearchPage,
             decoration: InputDecoration(
-              hintText: text.Search,
+              hintText: text.search,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20.0),
               ),

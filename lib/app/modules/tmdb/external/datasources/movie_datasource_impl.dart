@@ -37,7 +37,7 @@ class MovieDatasourceImpl implements MovieDatasource {
       final statusCode = response.statusCode!;
 
       if (statusCode == 200) {
-        logger.d('O if da função getCast da external foi validado.');
+        logger.d('A requisição do getCast retornou 200.');
         logger.d('O movieId é : $movieId');
         List<CastModel> castList = [];
 
@@ -69,7 +69,7 @@ class MovieDatasourceImpl implements MovieDatasource {
 
       if (statusCode == 200) {
         logger
-            .d('O if da função getNowPlayingMovies da external foi validado.');
+            .d('A requisição do getNowPlayingMovies retornou 200');
         List<MovieModel> movieList = [];
 
         List results = response.data['results'];
@@ -99,7 +99,7 @@ class MovieDatasourceImpl implements MovieDatasource {
       final statusCode = response.statusCode!;
 
       if (statusCode == 200) {
-        logger.d('O if da função getPopularMovies da external foi validado.');
+        logger.d('A requisição do getPopularMovies retornou 200.');
         List<MovieModel> movieList = [];
 
         List results = response.data['results'];
@@ -129,7 +129,7 @@ class MovieDatasourceImpl implements MovieDatasource {
       final statusCode = response.statusCode!;
 
       if (statusCode == 200) {
-        logger.d('O if da função getTopRatedMovies da external foi validado.');
+        logger.d('A requisição do getTopRatedMovies retornou 200.');
         List<MovieModel> movieList = [];
 
         List results = response.data['results'];
@@ -159,7 +159,7 @@ class MovieDatasourceImpl implements MovieDatasource {
       final statusCode = response.statusCode!;
 
       if (statusCode == 200) {
-        logger.d('O if da função getUpcomingMovies da external foi validado.');
+        logger.d('A requisição do getUpcomingMovies retornou 200.');
         List<MovieModel> movieList = [];
 
         List results = response.data['results'];
@@ -193,7 +193,7 @@ class MovieDatasourceImpl implements MovieDatasource {
       final statusCode = response.statusCode!;
 
       if (statusCode == 200) {
-        logger.d('O if da função getUpcomingMovies da external foi validado.');
+        logger.d('A requisição do getUpcomingMovies retornou 200.');
         List<MovieModel> movieList = [];
 
         List results = response.data['results'];
