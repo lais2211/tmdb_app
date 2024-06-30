@@ -1,9 +1,9 @@
 class MovieL10n {
   String get appTitle => 'TMDB';
 
-  String get Search => 'Pesquise aqui';
+  String get search => 'Pesquise aqui';
 
-  String get Popular => 'Populares';
+  String get popular => 'Populares';
 
   String get nowPlayingMovies => 'Lançamentos';
 
