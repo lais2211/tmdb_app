@@ -11,7 +11,7 @@ Este é um aplicativo Flutter que exibe filmes da plataforma da TMDB, coms lista
 - [Como Executar os testes](#como-executar-os-testes)
 - [Como fazer o build](#como-fazer-o-build)
 - [Telas](#telas)
-- [Links] (#links)
+- [Links](#links)
 
 
 ## Detalhes
@@ -73,6 +73,8 @@ Informações da API:
 
 ## Telas
 
+Obs.: Imagens capturadas de um celular samsung e chrome.
+
 **Splash Page**
 
 O acesso ao aplicativo começa com uma Splash Page temática. Essa escolha foi um toque criativo para maior imersividade do usuário com o app.
@@ -89,7 +91,6 @@ Na Home Page temos uma barra de pesquisa, um carrossel automático que exibe a l
 
 A escolha do carrossel automático adiciona uma sensação de movimento ao aplicativo, e o controle manual permite que o usuário navegue rapidamente pelos filmes, se necessário. 
 
-Obs.: Imagens capturadas de um celular samsung e chrome.
 
 MOBILE
 
@@ -103,7 +104,6 @@ WEB
 
 Ao clicar no botão ver mais ele irá retorna uma pagina de scroll inifinito com a lista completa da tematica escolhida. Trazendo o poster e nome dos filmes e ao clicar o usuário é enviando para a pagina de descrição do filme selecionado.
 
-Obs.: Imagens capturadas de um celular samsung e chrome.
 
 MOBILE
 
@@ -117,7 +117,6 @@ WEB
 
 Ao digitar a sua pesquisa na barra de pesquisas e clicar no botão de envio, o usuário é levado para a pagina de pesquisas que retorna todos os filmes com aquele termo do banco de dados da TMDB. É uma pagina com scroll inifinito que retorna o poster e o nome dos filmes, também contém tratativa de erros quando não temos o retorno de dados do backend. Ao clicar na imagem o usuário é enviando para a pagina de descrição do filme selecionado.
 
-Obs.: Imagens capturadas de um celular samsung e chrome.
 
 MOBILE
 
@@ -134,7 +133,6 @@ Ao clicar no cartão de um filme, o usuário é direcionado à página de descri
 
 Observação: Nem todos os filmes retornam todos os dados utilizados no app na API, então foi implementado um tratamento de erro para lidar com esse tipo de retorno.
 
-Obs.: Imagens capturadas de um celular samsung e chrome.
 
 MOBILE 
 
@@ -156,7 +154,6 @@ WEB
 
 Quando se tem um retorno de erro da api, é direcionado a uma pagina de erro aonde é informado ao usuário sobre o problema tecnico e com um botão para saida do app. Evitando o acesso a pagina da home sem as informações de retorno, devido a algum problema na chamada ou na api em questão.
 
-Obs.: Imagens capturadas de um celular samsung e chrome.
 
 MOBILE
 
